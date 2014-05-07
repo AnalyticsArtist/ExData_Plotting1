@@ -23,10 +23,7 @@
 ## -----
 ## (0) Load Libraries & Define Data Path
 ## (1) Read Data
-## (2) 
-## (3) 
-## (4) 
-## (5) 
+## (2) Plot 3: Timeseries of of Different Submeters with Legend
 ##
 ## **********************************************************************************************************************
 ## Notes
@@ -39,7 +36,6 @@
 # ***********************************************************************************************************************
 # Load Libraries
 library(lubridate)
-library(chron)
 
 # Define Data Path
 data_path <- "D:/Users/gmohanna/SkyDrive/Documents/HW/Coursera/Exploratory Data Analysis/Projects/Project 1"
@@ -67,17 +63,14 @@ data <- data[data$Date >= as.Date("2007-02-01") & data$Date <= as.Date("2007-02-
 # Create Date/Time stamp
 data$DateTime <- strptime(paste(data$Date, data$Time), format="%Y-%m-%d %H:%M:%S", tz="EST")
 
-#data$DateTime <- chron(dates=as.character(data$Date), times=as.character(data$Time), format=c('d/m/y','h:m:s'))
-#data$Date <- dmy(data$Date)
-
 # End Read Data
 
 
 # ***********************************************************************************************************************
-# (2) Plot 2: Timeseries of Global Active Power
+# (2) Plot 3: Timeseries of of Different Submeters with Legend
 # ***********************************************************************************************************************
-# Open PDF device; create 'Plot1.png' in working directory
-png(filename = "Plot3.png")
+# Open PNG device; create 'Plot1.png' in working directory
+png(filename = "Plot3.png", width=480, height=480, bg="transparent")
 
 # Create plot and send to a file (no plot appears on screen)
 plot (y=data$Sub_metering_1, x=data$DateTime, ylab="Energy sub metering", xlab="",type="l", col="black")
@@ -88,28 +81,4 @@ legend("topright", legend=c("Sub_metering_1", "Sub_metering_2", "Sub_metering_3"
 # Close the PNG file device
 dev.off()
 
-# End 
-
-
-# ***********************************************************************************************************************
-# (3) 
-# ***********************************************************************************************************************
-
-
-# End 
-
-
-# ***********************************************************************************************************************
-# (4) 
-# ***********************************************************************************************************************
-
-
-# End 
-
-
-# ***********************************************************************************************************************
-# (5) 
-# ***********************************************************************************************************************
-
-
-# End 
+# End Plot 3: Timeseries of of Different Submeters with Legend
